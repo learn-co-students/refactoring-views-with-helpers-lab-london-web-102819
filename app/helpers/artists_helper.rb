@@ -2,11 +2,9 @@ module ArtistsHelper
 
     def display_artist(song)
         unless song.artist
-            text = "<a href='/songs/#{song.id}/edit'>Add Artist</a>"
+            link_to("Add Artist", edit_song_path(song))
         else
-            text = "<a href='/artists/#{song.artist.id}'>#{song.artist.name}</a>"
+            link_to(song.artist.name, artist_path(song.artist))
         end
-        
-        text
     end
 end
